@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{FADE6896-39B5-E00A-CB0B-59DF97FBCA52}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DarkMage.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ColorBlock.cs" Line="23" Column="1" />
+      <File FileName="Assets/Scripts/DarkMageBullet.cs" Line="25" Column="5" />
+      <File FileName="Assets/Scripts/DarkMage.cs" Line="33" Column="25" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/Shielder.cs" Line="34" Column="44" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

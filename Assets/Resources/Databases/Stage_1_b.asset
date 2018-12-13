@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658fbf2fc719ee94b864b8dc552e9ada, type: 3}
+  m_Name: Stage_1_b
+  m_EditorClassIdentifier: 
+  setting: 1
+  stageVelocity: 0.003
+  dropRate: 1.5
+  waveEnemiesCant: {x: 0, y: 0}
+  enemiesToInstanciate:
+  - {fileID: 1346360057462298, guid: b1d4825b75f549b43abeb485a7ef5971, type: 2}
+  - {fileID: 1729925323877026, guid: 8e342e4d9dd1ff54fb6c91c7e5116026, type: 2}
+  - {fileID: 1188004944537468, guid: d79de2035f9d2c14bacda246abcb812b, type: 2}
+  obstaclesToInstanciate: []
+  instanciatorVelocity: 1
+  timeToComplete: 45
