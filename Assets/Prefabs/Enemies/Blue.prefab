@@ -316,9 +316,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 2
   type: 1
+  enemyType: 0
   isFirst: 0
   life: 1
-  player: {fileID: 0}
+  player: {fileID: 114998831471635902, guid: a177f89d50c506c428686a626c712721, type: 2}
   death: {fileID: 95475168521238200}
   heart: {fileID: 95494066812086092}
   circle: {fileID: 95806007029304082}

@@ -17,10 +17,16 @@ public class DarkMage : MonoBehaviour
     public Transform pos;
 
     public GameObject bullet;
-    public GameObject colorsBlock;
+
+    public List<GameObject> spawnObject;
 
     public float fireRate = 0.5f;
     float nextFire = 1f;
+
+    public float timer = 10f;
+
+    public float timeLastSpawn;
+    public float delaySpawn;
 
     public enum MageStages
     {
@@ -43,11 +49,15 @@ public class DarkMage : MonoBehaviour
     void LifePercentage(){
         percentage = (actuaLife * 100) / initialLife;
 
-        if(percentage <= 100 && percentage > 80){
+        if(percentage <= 100 && percentage >= 80){
             stage = MageStages.phase1;
         }
-        else if(percentage <= 80 && percentage > 60){
+        else if (percentage <= 80 && percentage >= 60){
             stage = MageStages.phase2;
+            timer -= Time.deltaTime;
+        }
+        if(timer <= 0){
+            stage = MageStages.phase1;
         }
     }
 
@@ -71,6 +81,11 @@ public class DarkMage : MonoBehaviour
                 darkMage.SetBool("Attack", false);
                 speed = 2f;
                 transform.position = Vector3.MoveTowards(transform.position, pos.position, speed * Time.deltaTime);
+                if(Time.time - timeLastSpawn >= delaySpawn){
+                    int selection = Random.Range(0, spawnObject.Count);
+                    GameObject instantiateObject = Instantiate(spawnObject[selection], pos.position, Quaternion.identity) as GameObject;
+                    timeLastSpawn = Time.time;
+                }
                 break;
         }
     }

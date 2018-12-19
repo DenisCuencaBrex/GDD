@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Instanciator : MonoBehaviour
 {
-
-    [SerializeField] GameObject[] objects;
     float timeToInstanciate = 2f;
     float lastInstance;
     float stageVelocity = 0f;

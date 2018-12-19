@@ -14,8 +14,12 @@ public class Shielder : MonoBehaviour {
 
     bool dead = false;
 
+    public void Start()
+    {
+        FindObjectOfType<Bullet>();
+    }
 
-    private void Update()
+    public void Update()
     {
         timer -= Time.deltaTime;
         ShieldUp();
