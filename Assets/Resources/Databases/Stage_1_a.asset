@@ -23,5 +23,5 @@ MonoBehaviour:
   - {fileID: 1729925323877026, guid: 074794ff99e4681498e639149b25252a, type: 2}
   obstaclesToInstanciate: []
   instanciatorVelocity: 0
-  timeToComplete: 70
+  timeToComplete: 7
   finalFase: {fileID: 0}

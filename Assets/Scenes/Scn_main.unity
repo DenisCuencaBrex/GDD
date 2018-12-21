@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5039,9 +5039,9 @@ MonoBehaviour:
   tiempo: 0
   stageFase: 0
   stagelist:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d05945ac083e26d40846b0cb5eb269ea, type: 2}
+  - {fileID: 11400000, guid: 03f845e856b1bda478c1d4fc05b70621, type: 2}
+  - {fileID: 11400000, guid: a31e2be94532fc14cb18b15fd2aad4d5, type: 2}
   inst: {fileID: 1487821276}
   menumanager: {fileID: 2081491769}
   floor: {fileID: 743006275}

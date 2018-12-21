@@ -12,13 +12,22 @@ MonoBehaviour:
   m_Name: Stage_1_b
   m_EditorClassIdentifier: 
   setting: 1
+  initialFase: {fileID: 1954943181200724, guid: 7756533ea5f904d4680f33beece03de6,
+    type: 2}
   stageVelocity: 0.003
   dropRate: 1.5
   waveEnemiesCant: {x: 0, y: 0}
   enemiesToInstanciate:
+  - {fileID: 1729925323877026, guid: 074794ff99e4681498e639149b25252a, type: 2}
+  - {fileID: 1729925323877026, guid: 074794ff99e4681498e639149b25252a, type: 2}
+  - {fileID: 1188004944537468, guid: 2beea2467a221b34e84c78778ae55180, type: 2}
+  - {fileID: 1188004944537468, guid: 2beea2467a221b34e84c78778ae55180, type: 2}
+  - {fileID: 1346360057462298, guid: 44b1ca1525fdbd648be51df91b049bd2, type: 2}
+  - {fileID: 1346360057462298, guid: 44b1ca1525fdbd648be51df91b049bd2, type: 2}
   - {fileID: 1346360057462298, guid: b1d4825b75f549b43abeb485a7ef5971, type: 2}
-  - {fileID: 1729925323877026, guid: 8e342e4d9dd1ff54fb6c91c7e5116026, type: 2}
   - {fileID: 1188004944537468, guid: d79de2035f9d2c14bacda246abcb812b, type: 2}
+  - {fileID: 1729925323877026, guid: 8e342e4d9dd1ff54fb6c91c7e5116026, type: 2}
   obstaclesToInstanciate: []
   instanciatorVelocity: 1
   timeToComplete: 45
+  finalFase: {fileID: 0}

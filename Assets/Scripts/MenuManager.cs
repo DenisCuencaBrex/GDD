@@ -115,7 +115,7 @@ public class MenuManager : MonoBehaviour
         player.isPlaying = true;
 
         inst.isStageFinished = false;
-        inst.gameObject.SetActive(true);
+        //inst.gameObject.SetActive(true);
         Time.timeScale = 1f;
         /*inst.wave = 0;
         inst.maxObj *= 2;

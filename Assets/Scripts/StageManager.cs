@@ -33,6 +33,7 @@ public class StageManager : MonoBehaviour {
 	void Update () {
         tiempo = Time.time; // esta solo para ver como transcurre el tiempo en el inspector
 
+        // si no hay initial fase (tutorial) pasa directamente a instanciar enemigos
         if (stageFase == 0 && stagelist[actualStage].initialFase == null)
         {
             stageFase = 1;
@@ -55,11 +56,12 @@ public class StageManager : MonoBehaviour {
                 //si no es el ultimo stage, avanza al siguiente
                 if (stageCant > actualStage + 1)
                 {
+                    print("se termino el stage");
                     //carga los datos del stage en el instanciator
                     actualStage++;
                     inst.actualStage = actualStage;
                     inst.isStageFinished = true; // le dice al instanciator que termino el stage anterior
-                    floor.Velocity = stagelist[actualStage].stageVelocity; //carga las propiedades del nuevo stage
+                    /*floor.Velocity = stagelist[actualStage].stageVelocity; //carga las propiedades del nuevo stage
                     timeToEndStage = stagelist[actualStage].timeToComplete + Time.time;
 
                     inst.enemiesToInstanciate.Clear(); //limpia la lista de enemigos del stage anterior y carga la del stage nuevo
@@ -71,8 +73,11 @@ public class StageManager : MonoBehaviour {
 
                     inst.StagePref(stagelist[actualStage].stageVelocity, stagelist[actualStage].dropRate);
                     inst.gameObject.SetActive(false);
-
+                    */
+                    inst.gameObject.SetActive(false);
+                    floor.Velocity = 0;
                     menumanager.NextLV();
+                    stageFase = 0; // vuelve a la fase 0 para cargar el tutorial del nuevo stage si hay
                 }
                 //si es el ultimo stage le dice al menumanager que abra el menu de lose
                 else if (stageCant <= actualStage + 1) { menumanager.Lose(); }
@@ -103,6 +108,7 @@ public class StageManager : MonoBehaviour {
     public void Initiate() { //se inicializa en MenuManager.cs
         if (stageCant > 0)
         {
+            inst.gameObject.SetActive(true);
             //carga los datos del stage en el instanciator
             timeToEndStage = stagelist[actualStage].timeToComplete + Time.time;
 

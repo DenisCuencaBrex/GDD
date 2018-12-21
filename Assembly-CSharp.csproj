@@ -77,8 +77,9 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\ShakeCamera.cs" />
     <Compile Include="Assets\Scripts\Shielder.cs" />
-    <Compile Include="Assets\Scripts\Stage 1\Stage1_initialFase.cs" />
     <Compile Include="Assets\Scripts\StageManager.cs" />
+    <Compile Include="Assets\Scripts\Stages\Obstacle.cs" />
+    <Compile Include="Assets\Scripts\Stages\Stage 1\a\Stage1_initialFase.cs" />
     <Compile Include="Assets\Scripts\TankColorBlock.cs" />
     <Compile Include="Assets\Scripts\TouchAssets\ColorMixer\ColorMix.cs" />
     <Compile Include="Assets\Scripts\TouchAssets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
