@@ -15,6 +15,7 @@ public class DarkMage : MonoBehaviour
     public Animator darkMage;
     public Transform target;
     public Transform pos;
+    public Transform spawnPos;
 
     public GameObject bullet;
 
@@ -28,6 +29,8 @@ public class DarkMage : MonoBehaviour
     public float timeLastSpawn;
     public float delaySpawn;
 
+    Player player;
+
     public enum MageStages
     {
         phase1,
@@ -38,6 +41,7 @@ public class DarkMage : MonoBehaviour
     public void Start()
     {
         actuaLife = initialLife;
+        player = FindObjectOfType<Player>();
     }
 
     public void Update()
@@ -61,7 +65,7 @@ public class DarkMage : MonoBehaviour
         }
     }
 
-    void Phases(){
+    private void Phases(){
         switch (stage)
         {
             case MageStages.phase1:
@@ -83,7 +87,7 @@ public class DarkMage : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, pos.position, speed * Time.deltaTime);
                 if(Time.time - timeLastSpawn >= delaySpawn){
                     int selection = Random.Range(0, spawnObject.Count);
-                    GameObject instantiateObject = Instantiate(spawnObject[selection], pos.position, Quaternion.identity) as GameObject;
+                    GameObject instantiateObject = Instantiate(spawnObject[selection], new Vector3(spawnPos.position.x + Random.Range(-3, 3), spawnPos.position.y, spawnPos.position.z), spawnPos.rotation) as GameObject;
                     timeLastSpawn = Time.time;
                 }
                 break;

@@ -5,12 +5,11 @@ using UnityEngine;
 public class Shielder : MonoBehaviour {
 
     public int life = 1;
-
-    public int shield = 0; // 0 = no escudo-- 1 = escudo
-
+    public int shield = 0; // 0 = no escudo -- 1 = escudo
     public float speed = 1f;
-
     public float timer = 2;
+
+    bool shieldDown = true;
 
     bool dead = false;
 
@@ -19,7 +18,7 @@ public class Shielder : MonoBehaviour {
         FindObjectOfType<Bullet>();
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         timer -= Time.deltaTime;
         ShieldUp();
@@ -28,16 +27,17 @@ public class Shielder : MonoBehaviour {
     void ShieldUp(){
         if (shield == 0 && timer <= 0)
         {
+            shieldDown = false;
             shield = 1;
             timer = 2;
         }
 
         else if(shield == 1 && timer <= 0)
         {
+                shieldDown = true;
                 shield = 0;
                 timer = 2;                 
         }  
-
                     }
 
 }
