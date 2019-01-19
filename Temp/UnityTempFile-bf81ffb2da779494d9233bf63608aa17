@@ -201,6 +201,7 @@
 'Assets/Scripts/Player/Player.cs'
 'Assets/Scripts/ShakeCamera.cs'
 'Assets/Scripts/Shielder.cs'
+'Assets/Scripts/Splitter.cs'
 'Assets/Scripts/StageManager.cs'
 'Assets/Scripts/Stages/Obstacle.cs'
 'Assets/Scripts/Stages/Stage 1/a/Stage1_initialFase.cs'

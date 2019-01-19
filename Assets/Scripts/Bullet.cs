@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour {
     bool isFirstbullet = false;
 
     public int index;
-    int damage;
+    public int damage;
 
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();

@@ -1094,9 +1094,10 @@ GameObject:
   - component: {fileID: 418390878}
   - component: {fileID: 418390877}
   - component: {fileID: 418390880}
+  - component: {fileID: 418390881}
   m_Layer: 0
   m_Name: darkmage
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1208,6 +1209,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &418390881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 418390876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9790f6e859f10d4dac14b3ef4e37d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 0
+  type: 0
+  enemyType: 0
+  isFirst: 0
+  life: 1
+  player: {fileID: 0}
+  death: {fileID: 0}
+  heart: {fileID: 0}
+  circle: {fileID: 0}
+  destroy: {fileID: 0}
+  wallDamage: {fileID: 0}
 --- !u!1 &451480925
 GameObject:
   m_ObjectHideFlags: 0

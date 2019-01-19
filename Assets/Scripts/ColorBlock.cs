@@ -58,24 +58,6 @@ public class ColorBlock : MonoBehaviour {
         }
 
         CheckCollision();
-        /*
-            if (hitColliders.Length > 0f)
-        {
-            //print(hitColliders[0].gameObject.name);
-            for (int i = 0; i < hitColliders.Length; i++)
-            {
-                //hitColliders[i].SendMessage("AddDamage");
-                i++;
-                //print(hitColliders[i].gameObject.name);
-                if (hitColliders[i].gameObject.tag == "BlueBullet") {
-
-                    print("blue bullet");
-                }
-                
-            }
-
-        }*/
-
 
 
     }
@@ -125,9 +107,10 @@ public class ColorBlock : MonoBehaviour {
                         //life--;
                     }
                     else if (type == 1) { life++; Destroy(bestBullet.gameObject); transform.localScale += new Vector3(.1f, .1f, 0); }
-                    else { Destroy(bestBullet.gameObject); velocity += 1f; }
+                    else { Destroy(bestBullet.gameObject); if (velocity > 0) { velocity += 1f; } }
 
-                }
+
+            }
 
                 else if (bestBullet.tag == "BlueBullet")
                 {
@@ -139,8 +122,13 @@ public class ColorBlock : MonoBehaviour {
                         //life--;
                     }
                     else if (type == 2) { life++; Destroy(bestBullet.gameObject); transform.localScale += new Vector3(.1f, .1f, 0); }
-                    else { Destroy(bestBullet.gameObject); velocity += 1f; }
+                    else {
+                    Destroy(bestBullet.gameObject);
+
+                    if (velocity > 0) { velocity += 1f; }
                 }
+
+            }
                 else if (bestBullet.tag == "GreenBullet")
                 {
                     if (type == 2)
@@ -151,10 +139,10 @@ public class ColorBlock : MonoBehaviour {
                         //life--;
                     }
                     else if (type == 0) { life++; Destroy(bestBullet.gameObject); transform.localScale += new Vector3(.1f, .1f, 0); }
-                    else { Destroy(bestBullet.gameObject); velocity += 1f; }
+                    else { Destroy(bestBullet.gameObject); if (velocity > 0) { velocity += 1f; } }
 
 
-                }
+            }
                 else if (bestBullet.tag == "VioletBullet")
                 {
                     if (type == 3)
@@ -165,10 +153,10 @@ public class ColorBlock : MonoBehaviour {
                         //life--;
                     }
                     else if (type == 4) { life++; Destroy(bestBullet.gameObject); transform.localScale += new Vector3(.1f, .1f, 0); }
-                    else { Destroy(bestBullet.gameObject); velocity += 1f; }
+                    else { Destroy(bestBullet.gameObject); if (velocity > 0) { velocity += 1f; } }
 
 
-                }
+            }
                 else if (bestBullet.tag == "OrangeBullet")
                 {
                     if (type == 4)
@@ -179,10 +167,9 @@ public class ColorBlock : MonoBehaviour {
                         //life--;
                     }
                     else if (type == 5) { life++; Destroy(bestBullet.gameObject); transform.localScale += new Vector3(.1f, .1f, 0); }
-                    else { Destroy(bestBullet.gameObject); velocity += 1f; }
+                    else { Destroy(bestBullet.gameObject); if (velocity > 0) { velocity += 1f; } }
 
-
-                }
+            }
                 else if (bestBullet.tag == "YellowBullet")
                 {
                     if (type == 5)
@@ -193,25 +180,28 @@ public class ColorBlock : MonoBehaviour {
                         //life--;
                 }
                 else if (type == 3) { life++; Destroy(bestBullet.gameObject); transform.localScale += new Vector3(.1f, .1f, 0); }
-                    else { Destroy(bestBullet.gameObject); velocity += 1f; }
+                    else { Destroy(bestBullet.gameObject); if (velocity > 0) { velocity += 1f; } }
 
-
-                }
+            }
             }
 
             if (life <= 0 && dead != true) { dead = true; player.Experience=10f;
             player.combo++; player.comboTimer = Time.time + player.comboDuration * Time.deltaTime; }
 
 
-
-            if (dead == true)
+        if (dead == true)
             {
 
                 
                 velocity = 0f;
-                death.SetBool("Death", true);
+                if (death != null) { death.SetBool("Death", true); }
+
                 Collider collider = GetComponent<Collider>();
-                collider.enabled = false;
+                if (collider != null)
+                {
+                    collider.enabled = false;
+                }
+                
                 StartCoroutine(Destroy());
             }
         

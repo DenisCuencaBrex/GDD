@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DarkMage : MonoBehaviour
 {
-    public MageStages stage;
-    public float initialLife = 100f;
+      public MageStages stage;
+    public float initialLife = 10f;
     public float actuaLife; 
     public float speed = 2f;
     float percentage;
@@ -24,45 +24,152 @@ public class DarkMage : MonoBehaviour
     public float fireRate = 0.5f;
     float nextFire = 1f;
 
-    public float timer = 10f;
+    public float timer;
+    public float maxTimer = 5f;
 
     public float timeLastSpawn;
     public float delaySpawn;
 
     Player player;
 
+
+    public int type = 0;//     0 = red;      1 = blue;      2 = green;      3 = violet;     4 = orange;     5 = yellow
+
+    enum EnemyType { BasicRed, BasicBlue, BasicGreen, BasicViolet, BasicOrange, BasicYellow };
+
+    [SerializeField]
+    EnemyType enemyType = 0;
+
+    bool dead = false;
+
+    public bool isFirst = false;
+
+    //public Animator death;
+    //[SerializeField] Animator heart;
+    [SerializeField] Animator circle;
+
+    //public GameObject destroy;
+
+    //[SerializeField] GameObject wallDamage;
+    //ShakeCamera shakeCamera;
+
+    Collider[] hitColliders;
+
+    // Instanciator inst;
+
     public enum MageStages
     {
         phase1,
         phase2,
-        phase3,
     }
 
     public void Start()
     {
+        timer = maxTimer;
         actuaLife = initialLife;
         player = FindObjectOfType<Player>();
     }
+
+
 
     public void Update()
     {
         LifePercentage();
         Phases();
+        CheckCollision();
     }
 
-    void LifePercentage(){
-        percentage = (actuaLife * 100) / initialLife;
 
-        if(percentage <= 100 && percentage >= 80){
+    private void CheckCollision()
+    {
+        hitColliders = Physics.OverlapSphere(transform.position, 0.1f);
+        Collider firstBulletCol;
+
+        Collider bestBullet = null;
+
+        foreach (Collider col in hitColliders)
+        {
+        
+
+            if (col.tag == "RedBullet" || col.tag == "BlueBullet" || col.tag == "GreenBullet"
+                || col.tag == "OrangeBullet" || col.tag == "VioletBullet" || col.tag == "YellowBullet")
+            {
+
+                if (bestBullet == null)
+                {
+                    bestBullet = col;
+                }
+                if (col.GetComponent<Bullet>().index < bestBullet.GetComponent<Bullet>().index)
+                {
+                    bestBullet = col;
+                }
+
+            }
+
+        }
+        if (bestBullet != null && dead == false)
+        {
+            if (bestBullet.tag == "RedBullet")   // si la bala es roja y el tipo de enemigo tambien destruye al enemigo y a la bala. Si la bala es roja pero el enemigo no, destruye la bala
+            {
+                if (type == 0)
+                {
+                    actuaLife -= bestBullet.gameObject.GetComponent<Bullet>().Damage;
+                    Destroy(bestBullet.gameObject);
+                    //life--;
+                }
+
+
+            }
+         
+
+
+        }
+
+
+
+    }
+
+    public void IsFirst()
+    {
+        if (circle != null) { circle.SetBool("isFirst", true); }
+        isFirst = true;
+    }
+
+
+
+
+    void LifePercentage(){
+        percentage = (actuaLife * 10) / initialLife;
+
+        if(percentage <= 10 && percentage >= 8){
             stage = MageStages.phase1;
         }
-        else if (percentage <= 80 && percentage >= 60){
+        else if (percentage <= 8 && percentage >= 6){
             stage = MageStages.phase2;
-            timer -= Time.deltaTime;
+           // timer -= Time.deltaTime;
         }
-        if(timer <= 0){
+      /*  if(timer <= 0){
             stage = MageStages.phase1;
+        }*/
+        if (percentage <= 6 && percentage >= 4)
+        {
+            stage = MageStages.phase1;
+            //timer -= Time.deltaTime;
         }
+       // if(timer <= 0)
+        //{
+          //  stage = MageStages.phase1;
+        //}
+        if(percentage <= 4 && percentage >= 1)
+        {
+            stage = MageStages.phase2;
+        }
+
+        if(percentage <= 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private void Phases(){
