@@ -57,6 +57,14 @@ public class Player : MonoBehaviour {
     GameObject[] bullets;
     int bulletIndex = 0;
 
+    [SerializeField] AudioSource aSource;
+    [SerializeField] AudioClip redAudio;
+    [SerializeField] AudioClip greenAudio;
+    [SerializeField] AudioClip blueAudio;
+
+
+    public bool alreadyPlayed = false;
+
     //[HideInInspector] public GameObject firstBullet = null;
 
 
@@ -70,6 +78,8 @@ public class Player : MonoBehaviour {
 
     void Start()
     {
+        aSource = GetComponent<AudioSource>();
+
         enemiesList = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemiesList != null) { GetClosestEnemy(enemiesList); }
         //lvllist = Resources.Load<LvlsList>("Databases/LvlsList");
@@ -181,7 +191,7 @@ public class Player : MonoBehaviour {
                 bulletColor = redBullet;
                 buttonReleased = true;
 
-
+                /*if (!alreadyPlayed) { */aSource.PlayOneShot(redAudio);// alreadyPlayed = true; }
             }
 
 
@@ -190,6 +200,7 @@ public class Player : MonoBehaviour {
                 bulletColor = blueBullet;
                 buttonReleased = true;
 
+                /*if (!alreadyPlayed) { */aSource.PlayOneShot(blueAudio); //alreadyPlayed = true; }
             }
 
 
@@ -198,6 +209,7 @@ public class Player : MonoBehaviour {
                 bulletColor = greenBullet;
                 buttonReleased = true;
 
+                /*if (!alreadyPlayed) { */aSource.PlayOneShot(greenAudio);// alreadyPlayed = true; }
             }
 
 

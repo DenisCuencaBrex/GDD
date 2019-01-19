@@ -19,9 +19,14 @@ public class ColorBlock : MonoBehaviour {
 
     public int life = 1;
 
+    public bool alreadyPlayed = false;
+
     [SerializeField] Player player;
 
     public Animator death;
+    public AudioClip deadSound;
+    [SerializeField]
+    public AudioSource aSource;
     [SerializeField] Animator heart;
     [SerializeField] Animator circle;
 
@@ -36,6 +41,7 @@ public class ColorBlock : MonoBehaviour {
 
     void Start() {
         inst = FindObjectOfType<Instanciator>();
+        aSource = GetComponent<AudioSource>();
 
         //shakeCamera = GetComponent<ShakeCamera>();
         shakeCamera = FindObjectOfType<ShakeCamera>();
@@ -194,7 +200,13 @@ public class ColorBlock : MonoBehaviour {
 
                 
                 velocity = 0f;
-                if (death != null) { death.SetBool("Death", true); }
+                if (death != null) { death.SetBool("Death", true);
+                if (!alreadyPlayed)
+                {
+                    aSource.PlayOneShot(deadSound);
+                    alreadyPlayed = true;
+                }
+                                     }
 
                 Collider collider = GetComponent<Collider>();
                 if (collider != null)
