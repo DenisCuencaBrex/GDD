@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Text pointsAvalaibleNumber;
     [SerializeField] StatsBar[] statsBar; // order : resistence, damage, luck
     [SerializeField] StageManager stageManager;
+    [SerializeField] GameObject mainMenuUI;
 
     Instanciator inst;
     Player player;
@@ -25,13 +26,20 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        if(mainMenuUI == true)
+        {
+            Time.timeScale = 0f;
+        }
         inst = FindObjectOfType<Instanciator>();
         player = FindObjectOfType<Player>();
+
         
     }
 
     public void FixedUpdate()
     {
+       
+
         if (player != null) {
             healthBar.value = player.Life;
             pointsAvalaibleNumber.text = player.statsPoint.ToString();
@@ -80,8 +88,9 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
+
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        mainMenuUI.SetActive(false);
         stageManager.ActualStage = 0;
         stageManager.Initiate();
 

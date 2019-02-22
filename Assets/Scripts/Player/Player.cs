@@ -191,7 +191,7 @@ public class Player : MonoBehaviour {
                 bulletColor = redBullet;
                 buttonReleased = true;
 
-                /*if (!alreadyPlayed) { */aSource.PlayOneShot(redAudio);// alreadyPlayed = true; }
+                aSource.PlayOneShot(redAudio);
             }
 
 
@@ -200,7 +200,7 @@ public class Player : MonoBehaviour {
                 bulletColor = blueBullet;
                 buttonReleased = true;
 
-                /*if (!alreadyPlayed) { */aSource.PlayOneShot(blueAudio); //alreadyPlayed = true; }
+               aSource.PlayOneShot(blueAudio);
             }
 
 
@@ -209,7 +209,7 @@ public class Player : MonoBehaviour {
                 bulletColor = greenBullet;
                 buttonReleased = true;
 
-                /*if (!alreadyPlayed) { */aSource.PlayOneShot(greenAudio);// alreadyPlayed = true; }
+                aSource.PlayOneShot(greenAudio);
             }
 
 

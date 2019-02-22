@@ -45,7 +45,7 @@ public class DarkMage : MonoBehaviour
     public bool isFirst = false;
 
     //public Animator death;
-    //[SerializeField] Animator heart;
+    [SerializeField] Animator heart;
     [SerializeField] Animator circle;
 
     //public GameObject destroy;
@@ -68,6 +68,10 @@ public class DarkMage : MonoBehaviour
         timer = maxTimer;
         actuaLife = initialLife;
         player = FindObjectOfType<Player>();
+        /*if (heart != null)
+        {
+            heart.SetInteger("life", -1);
+        }*/
     }
 
 
@@ -77,6 +81,11 @@ public class DarkMage : MonoBehaviour
         LifePercentage();
         Phases();
         CheckCollision();
+
+        if (heart != null && isFirst == true)
+        {
+            heart.SetInteger("life",Mathf.RoundToInt(actuaLife));
+        }
     }
 
 
@@ -148,18 +157,12 @@ public class DarkMage : MonoBehaviour
             stage = MageStages.phase2;
            // timer -= Time.deltaTime;
         }
-      /*  if(timer <= 0){
-            stage = MageStages.phase1;
-        }*/
         if (percentage <= 6 && percentage >= 4)
         {
             stage = MageStages.phase1;
             //timer -= Time.deltaTime;
         }
-       // if(timer <= 0)
-        //{
-          //  stage = MageStages.phase1;
-        //}
+
         if(percentage <= 4 && percentage >= 1)
         {
             stage = MageStages.phase2;
