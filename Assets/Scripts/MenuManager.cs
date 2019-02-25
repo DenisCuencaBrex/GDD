@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
 
     Instanciator inst;
     Player player;
-    
+    Canvas canvas;
 
     private void Start()
     {
@@ -32,6 +32,7 @@ public class MenuManager : MonoBehaviour
         }
         inst = FindObjectOfType<Instanciator>();
         player = FindObjectOfType<Player>();
+        canvas = FindObjectOfType<Canvas>();
 
         
     }
@@ -41,8 +42,7 @@ public class MenuManager : MonoBehaviour
        
 
         if (player != null) {
-            healthBar.value = player.Life;
-            pointsAvalaibleNumber.text = player.statsPoint.ToString();
+            //pointsAvalaibleNumber.text = player.statsPoint.ToString();
             if (player.Life <= 0)
             {
                 if (GameManager.score > GameManager.highscore)

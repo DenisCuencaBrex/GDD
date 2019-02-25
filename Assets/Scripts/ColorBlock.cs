@@ -81,7 +81,7 @@ public class ColorBlock : MonoBehaviour {
             {
                 inst.enemiesAlive--;
                 wallDamage.SetActive(true);
-                player.Life-=10;
+                player.Life-=1;
                 if (player.Life > 0) { shakeCamera.isShaking = true; }
                 Destroy(gameObject);
             }

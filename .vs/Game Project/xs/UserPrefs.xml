@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{FADE6896-39B5-E00A-CB0B-59DF97FBCA52}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Canvas.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Stages/Obstacle.cs">
     <Files>
       <File FileName="Assets/Scripts/DarkMage.cs" Line="48" Column="34" />
-      <File FileName="Assets/Scripts/MenuManager.cs" Line="31" Column="33" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="12" Column="32" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="47" Column="32" />
       <File FileName="Assets/Scripts/GUI/StatsBar.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Canvas.cs" Line="14" Column="32" />
+      <File FileName="Assets/Scripts/Canvas.cs" Line="9" Column="37" />
+      <File FileName="Assets/Scripts/ColorBlock.cs" Line="84" Column="31" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="369" Column="29" />
+      <File FileName="Assets/Scripts/Stages/Obstacle.cs" Line="212" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

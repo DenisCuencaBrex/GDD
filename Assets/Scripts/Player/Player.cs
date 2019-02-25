@@ -9,8 +9,8 @@ public class Player : MonoBehaviour {
 
     [Header("Player Settings")]
 
-    [SerializeField] float life = 100f;
-    [SerializeField] float maxLife = 100f;
+    [SerializeField] float life = 10;
+    [SerializeField] float maxLife = 10;
     [SerializeField] float experience = 0f;
     float xpModifier = 2.5f;
     [SerializeField] int lvl = 1;
@@ -365,8 +365,8 @@ public class Player : MonoBehaviour {
         get { return maxLife; }
         set
         {
-            if (value < 100)
-                maxLife = 100;
+            if (value < 10)
+                maxLife = 10;
             else
                 maxLife = value;
         }
