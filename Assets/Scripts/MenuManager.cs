@@ -12,7 +12,6 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] GameObject pauseMenuUI;
     [SerializeField] GameObject loseMenuUI;
-    [SerializeField] Slider healthBar;//pa borrar
     [SerializeField] GameObject nextLvUI;
     [SerializeField] Text stageNumber;
     [SerializeField] Text pointsAvalaibleNumber;
